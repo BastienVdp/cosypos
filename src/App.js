@@ -1,55 +1,55 @@
-import { Route, Routes, Link } from "react-router-dom"
+import { Route, Routes, NavLink } from "react-router-dom"
 import cn from "classnames"
 import Menu from "./pages/Menu"
 import Orders from "./pages/Orders"
 const nav = [
   {
-    path: "/reservation",
-    label: "Reservation"
-  },
-  {
-    path: "/tables",
-    label: "Table service"
+    path: "/orders",
+    label: "Orders"
   },
   {
     path: "/",
     label: "Menu"
   },
-  {
-    path: "/delivery",
-    label: "Delivery"
-  },
 ]
 function App() {
   return (
-    <div className="App w-screen min-h-screen bg-black text-white text-sm flex gap-6 pt-6">
+    <div className="App w-full min-h-screen overflow-hidden bg-black text-white text-sm flex gap-6 px-3 lg:px-0">
       {/* Sidebar */}
-      <div className="grow-0 shrink-0 w-1/5 pl-10">
-        <h1 className="font-semibold text-xl text-center mb-6">CosyPOS</h1>
+      <div className="fixed grow-0 shrink-0 w-[80px] md:w-[200px] md:pl-10 text-center md:text-left pt-6">
+        <h1 className="font-semibold md:text-xl text-center mb-6">CosyPOS</h1>
         <nav>
-          <ul role={"list"} className="flex flex-col gap-3 text-gray-100">
+          <ul className="flex flex-col gap-3 text-gray-100">
             {nav.map((item,i) => (
               <NavItem key={i} item={item} />
             ))}
           </ul>
         </nav>
       </div>
-      <Routes>
-        <Route path="/" element={<Menu />} />
-        <Route path="/orders" element={<Orders />} />
-      </Routes>
+      <div className="ml-[105px] md:ml-[225px] w-full">
+        <Routes>
+          <Route path="/" element={<Menu />} />
+          <Route path="/orders" element={<Orders />} />
+        </Routes>
+      </div>
+      
     </div>
   );
 }
 
 function NavItem({item}) 
 {
+  console.log(item.path);
   const isActive = window.location.pathname ===  item.path
   return <>
-    <li className={cn('px-4 py-2.5 font-medium', {'bg-gray text-white rounded-md' : isActive})}>
-      <Link to={item.path}>
-        {item.label}
-      </Link>
+    <li >
+      <NavLink to={item.path} className={({isActive }) =>
+        isActive ? 'bg-gray text-white rounded-md px-4 py-2.5 font-medium block' : 'px-4 py-2.5 font-medium block'
+      }>
+
+        <span className="block md:hidden">icon</span>
+        <span className="hidden md:block">{item.label}</span>
+      </NavLink>
     </li>
   </>
 }

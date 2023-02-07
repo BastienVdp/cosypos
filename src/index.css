@@ -6,4 +6,47 @@
   html {
     font-family: Inter, sans-serif;
   }
+  .layout::-webkit-scrollbar {
+    width: 10px;
+  }
+  .layout::-webkit-scrollbar-track {
+    background: theme(colors.black); 
+  }
+  .layout::-webkit-scrollbar-thumb {
+    background: theme(colors.gray-150);
+    
+    @apply rounded-full;
+  }
+  .layout::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
 }
+
+
+@layer components {
+  .products-grid {
+    @apply grid gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+  }
+
+  .product-card {
+    @apply flex flex-col py-3 px-5 rounded-lg bg-gray relative before:absolute before:z-0 before:top-0 before:bottom-0 before:left-0 before:w-2 before:rounded-tl-lg before:rounded-bl-lg before:bg-pastel-red hover:before:rounded-lg hover:before:w-full before:transition-all;
+  }
+
+  .btn {
+    @apply bg-white rounded-full text-center text-black py-3
+  }
+
+  .card {
+    @apply bg-gray rounded-lg p-3;
+  }
+  /* .product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 10px;
+    background-color: red;
+  } */
+}
+
