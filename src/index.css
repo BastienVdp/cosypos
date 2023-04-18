@@ -7,7 +7,7 @@
     font-family: Inter, sans-serif;
   }
   .layout::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
   }
   .layout::-webkit-scrollbar-track {
     background: theme(colors.black); 

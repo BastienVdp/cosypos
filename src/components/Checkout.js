@@ -3,7 +3,6 @@ export default function Checkout()
     return <>
         <div className="lg:px-6 relative mt-4 lg:mt-0">
             <div className="lg:absolute lg:right-0 lg:bottom-4 lg:pr-3 w-full flex flex-col top-0 bottom-0">
-                
                 <div>
                     <div className="flex justify-between">
                         <div className="text-lg">

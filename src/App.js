@@ -26,7 +26,7 @@ function App() {
           </ul>
         </nav>
       </div>
-      <div className="ml-[105px] md:ml-[225px] w-full">
+      <div className="pl-[105px] md:pl-[225px] w-full">
         <Routes>
           <Route path="/" element={<Menu />} />
           <Route path="/orders" element={<Orders />} />
